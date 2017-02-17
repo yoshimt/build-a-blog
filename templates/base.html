@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+
+    <title>Blog</title>
+  </head>
+  <style type="text/css">
+    body {
+      font-family: sans-serif;
+      width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: lightblue;
+    }
+
+    .error {
+      color: red
+    }
+
+    label {
+      display: block;
+      font-size 20.px;
+    }
+
+    input[type=text] {
+      font-size: 24px;
+    }
+    hr {
+      margin: 20ox auto;
+    }
+
+    .blog + .blog {
+      margin: 0;
+    }
+    .main{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .blog-body{
+      margin: 0;
+      font-size: 12px;
+    }
+  </style>
+
+
+  <body>
+      <div class="main"><a href="/">Main Page</a></div>
+      <div class="main"><a href="/newpost">New Blog</a><div>
+      <hr>
+          {% for blog in blogs %}
+              <div class ="blog"></div>
+              <h3 class ="subject"><a href="/base/{{ blog.key().id() }}">{{blog.title}}</a></h3>
+              <div> {{ blog.id }}</div>
+              <p class ="body">{{blog.blog}}</p>
+          {% endfor %}
+      </hr>
+{% block content %}
+{% endblock %}
+  </body>
+  </html>
